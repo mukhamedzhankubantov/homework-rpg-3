@@ -16,9 +16,7 @@ public class EnemyCombatantAdapter implements Combatant {
     }
 
     @Override
-    public int getAttackPower() {
-        // TODO: translate enemy damage to combat attack
-        return enemy.getDamage();
+    public int getAttackPower() {return enemy.getDamage();
     }
 
     @Override

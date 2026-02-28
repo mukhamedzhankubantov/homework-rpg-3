@@ -24,11 +24,10 @@ public final class BattleEngine {
     }
 
     public void reset() {
-        // TODO: reset any battle state if you add it
+        this.random = new Random(1L);
     }
 
     public EncounterResult runEncounter(List<Combatant> teamA, List<Combatant> teamB) {
-        // TODO: validate inputs and run round-based battle
         if (teamA == null || teamB == null){
             throw new IllegalArgumentException("Teams must not be null");
         }
@@ -72,10 +71,10 @@ public final class BattleEngine {
                 if (damage < 0) damage = 0;
 
                 target.takeDamage(damage);
-                result.addLog(attacker.getName()+"hits " +target.getName() +"for " +damage);
+                result.addLog(attacker.getName()+" hits " +target.getName() +" for " +damage);
 
                 if (!target.isAlive()) {
-                    result.addLog(target.getName() + "is defeated!");
+                    result.addLog(target.getName() + " is defeated!");
                     b.remove(0);
                 }
             }
@@ -110,13 +109,5 @@ public final class BattleEngine {
             result.setWinner("Team B");
         }
         return result;
-
-
-        // TODO: use random if you add critical hits or target selection
-//        EncounterResult result = new EncounterResult();
-//        result.setWinner("TBD");
-//        result.setRounds(0);
-//        result.addLog("TODO: implement battle simulation");
-//        return result;
     }
 }
